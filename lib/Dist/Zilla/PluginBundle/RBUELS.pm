@@ -1,4 +1,5 @@
 package Dist::Zilla::PluginBundle::RBUELS;
+# ABSTRACT: Build your distributions like RBUELS does
 use Moose;
 
 use namespace::autoclean;
@@ -9,11 +10,10 @@ has '+authority' => ( default => "cpan:RBUELS" );
 
 has '+github_user' => ( default => "rbuels" );
 
+after 'configure' => sub {
+    shift->add_plugins([ NextRelease => ]);
+};
+
 __PACKAGE__->meta->make_immutable;
 
-# ex: set sw=4 et:
-
-__PACKAGE__
-
-__END__
-
+1;
