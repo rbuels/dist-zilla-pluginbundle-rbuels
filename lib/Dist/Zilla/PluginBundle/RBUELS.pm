@@ -11,7 +11,9 @@ has '+authority' => ( default => "cpan:RBUELS" );
 has '+github_user' => ( default => "rbuels" );
 
 after 'configure' => sub {
-    shift->add_plugins([ NextRelease => ]);
+    shift->add_plugins(qw(
+        NextRelease
+      ));
 };
 
 __PACKAGE__->meta->make_immutable;
